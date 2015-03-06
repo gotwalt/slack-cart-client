@@ -5,10 +5,15 @@
     "dotenv": "*",
     "pusher": "*",
     "pusher-client": "*",
-    "node-mac": "*",
-    "node-notifier": "*"
+    "node-osascript": "*",
+    "node-notifier": "*",
+    "forever": "*"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "forever start -a -l forever.log -o out.log -e err.log client.js",
+    "stop": "forever stop client.js"
   }
 }

@@ -1,6 +1,6 @@
 require('dotenv').load();
-console.log(process.env);
-var exec = require('child_process').exec;
+
+var osascript = require('node-osascript');
 var notifier = require('node-notifier');
 var pusher = require('./pusher_client').connect();
 var path = require('path');
@@ -14,7 +14,9 @@ channel.bind('show',
       'message': 'Opening ' + data.uri,
       'contentImage': path.join(__dirname, 'orphid.png'),
     });
-    console.log(data);
-    exec('open ' + data.uri)
+
+    osascript.executeFile(path.join(__dirname, 'chrome.scpt'), { uri : data.uri }, function(err, result, raw){
+      if (err) console.error(err);
+    });
   }
 );
