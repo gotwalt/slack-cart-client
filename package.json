@@ -1,0 +1,14 @@
+{
+  "name": "slack-cart-client",
+  "version": "0.0.0",
+  "dependencies": {
+    "dotenv": "*",
+    "pusher": "*",
+    "pusher-client": "*",
+    "node-mac": "*",
+    "node-notifier": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
